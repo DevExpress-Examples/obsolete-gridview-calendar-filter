@@ -1,0 +1,99 @@
+﻿@Html.DevExpress().FormLayout(fs =>
+{
+    fs.Name = "formlayout";
+    fs.ColCount = 2;
+    fs.Items.Add(item =>
+    {
+        item.Name = "ShowAll";
+        item.NestedExtensionType = FormLayoutNestedExtensionItemType.CheckBox;
+        item.ShowCaption = DefaultBoolean.False;
+        item.ColSpan = 2;
+        item.RowSpan = 1;
+        item.SetNestedContent(() =>
+        {
+            Html.DevExpress().CheckBox(chs =>
+            {
+                chs.Name = "ShowAllCheckBox";
+                chs.Text = "Show All";
+                chs.Checked = true;
+                chs.Properties.ClientSideEvents.Init = "OnInit";
+                chs.Properties.ClientSideEvents.CheckedChanged = "OnFilterOptionChanged";
+            }).Render();
+        });
+    });
+    fs.Items.Add(item =>
+    {
+        item.Name = "FilterByDate";
+        item.NestedExtensionType = FormLayoutNestedExtensionItemType.CheckBox;
+        item.ShowCaption = DefaultBoolean.False;
+        item.ColSpan = 2;
+        item.RowSpan = 1;
+        item.SetNestedContent(() =>
+        {
+            Html.DevExpress().CheckBox(chs =>
+            {
+                chs.Name = "FilterByDateCheckBox";
+                chs.Text = "Filter by specific date";
+                chs.Properties.ClientSideEvents.Init = "OnInit";
+                chs.Properties.ClientSideEvents.CheckedChanged = "OnFilterOptionChanged";
+            }).Render();
+        });
+    });
+    EmptyLayoutItem i = fs.Items.AddEmptyItem();
+    i.ColSpan = 1;
+    fs.Items.Add(item =>
+    {
+
+        item.Name = "CalendarItem";
+        item.ShowCaption = DefaultBoolean.False;
+        item.ColSpan = 1;
+        item.ParentContainerStyle.Paddings.PaddingLeft = Unit.Pixel(15);
+        item.RowSpan = 1;
+        item.SetNestedContent(() =>
+        {
+            Html.DevExpress().Calendar(cs =>
+        {
+            cs.Name = "Calendar";
+            cs.Properties.ClientSideEvents.SelectionChanged = "OnDateChanged";
+            cs.Properties.ShowTodayButton = false;
+            cs.Properties.ShowClearButton = false;
+        }).Render();
+        });
+    });
+    fs.Items.Add(item =>
+    {
+        item.Name = "LastMonth";
+        item.NestedExtensionType = FormLayoutNestedExtensionItemType.CheckBox;
+        item.ShowCaption = DefaultBoolean.False;
+        item.ColSpan = 2;
+        item.RowSpan = 1;
+        item.SetNestedContent(() =>
+        {
+            Html.DevExpress().CheckBox(chs =>
+            {
+                chs.Name = "LastMonthCheckBox";
+                chs.Text = "Last Month";
+                chs.Properties.ClientSideEvents.Init = "OnInit";
+                chs.Properties.ClientSideEvents.CheckedChanged = "OnFilterOptionChanged";
+            }).Render();
+        });
+    });
+    fs.Items.Add(item =>
+    {
+        item.Name = "NextMonth";
+        item.NestedExtensionType = FormLayoutNestedExtensionItemType.CheckBox;
+        item.ShowCaption = DefaultBoolean.False;
+        item.ColSpan = 2;
+        item.RowSpan = 1;
+        item.SetNestedContent(() =>
+        {
+            Html.DevExpress().CheckBox(chs =>
+            {
+                chs.Name = "NextMonthCheckBox";
+                chs.Text = "Next month";
+                chs.Properties.ClientSideEvents.Init = "OnInit";
+                chs.Properties.ClientSideEvents.CheckedChanged = "OnFilterOptionChanged";
+            }).Render();
+        });
+    });
+}).GetHtml()
