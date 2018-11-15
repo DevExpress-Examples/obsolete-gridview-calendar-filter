@@ -1,3 +1,12 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/T146465/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/T146465/Controllers/HomeController.vb))
+* [MyModel.cs](./CS/T146465/Models/MyModel.cs) (VB: [MyModel.vb](./VB/T146465/Models/MyModel.vb))
+* [_GridViewPartial.cshtml](./CS/T146465/Views/Home/_GridViewPartial.cshtml)
+* [Index.cshtml](./CS/T146465/Views/Home/Index.cshtml)
+* [PartialContent.cshtml](./CS/T146465/Views/Home/PartialContent.cshtml)
+<!-- default file list end -->
 # OBSOLETE - GridView - How to implement a custom HeaderFilter with a calendar for a date column
 
 
